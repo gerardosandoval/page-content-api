@@ -11,6 +11,7 @@ class Page < ApplicationRecord
 
   def index_content
     doc = Nokogiri::HTML(parsed_html)
+    clean_data if doc.elements.count > 0
     doc.css('h1, h2, h3', 'a').each do |element|
       ElementParser.new(self, element).create_element
     end
@@ -34,6 +35,11 @@ class Page < ApplicationRecord
         errors.add :url, "Can't index this URL, please try again or try with another URL"
         false
       end
+  end
+
+  def clean_data
+    self.elements.delete_all
+    self.links.delete_all
   end
 end
 
