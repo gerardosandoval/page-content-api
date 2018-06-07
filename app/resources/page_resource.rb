@@ -1,6 +1,12 @@
 class PageResource < JSONAPI::Resource
-  has_many :elements
-  has_many :links
-  attributes :url
+  attributes :url, :elements, :links
   filter :url
+
+  def elements
+    @model.elements.as_json(only: [:id, :element_type, :content])
+  end
+
+  def links
+    @model.links.as_json(only: [:id, :url])
+  end
 end

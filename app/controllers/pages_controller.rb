@@ -9,7 +9,7 @@ class PagesController < ApplicationController
       render json: { errors: @page.errors }, status: :unprocessable_entity and return
     end
 
-    render json: @page.serialize, status: :created
+    render json: @page.reload.serialize, status: :created
   end
 
   private
