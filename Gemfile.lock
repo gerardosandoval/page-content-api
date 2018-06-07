@@ -139,7 +139,6 @@ DEPENDENCIES
   byebug
   jsonapi-resources
   listen (>= 3.0.5, < 3.2)
-  nokogiri
   pry
   puma (~> 3.7)
   rails (~> 5.1.5)
@@ -150,4 +149,4 @@ DEPENDENCIES
   valid_url
 
 BUNDLED WITH
-   1.15.4
+   1.16.2

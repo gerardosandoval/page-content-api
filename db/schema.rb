@@ -10,19 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606024641) do
+ActiveRecord::Schema.define(version: 20180607040649) do
 
   create_table "elements", force: :cascade do |t|
+    t.integer "page_id"
     t.string "element_type"
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_elements_on_page_id"
   end
 
   create_table "links", force: :cascade do |t|
+    t.integer "page_id"
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_links_on_page_id"
   end
 
   create_table "pages", force: :cascade do |t|
