@@ -12,8 +12,11 @@
 
 ActiveRecord::Schema.define(version: 20180607040649) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "elements", force: :cascade do |t|
-    t.integer "page_id"
+    t.bigint "page_id"
     t.string "element_type"
     t.string "content"
     t.datetime "created_at", null: false
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20180607040649) do
   end
 
   create_table "links", force: :cascade do |t|
-    t.integer "page_id"
+    t.bigint "page_id"
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -36,4 +39,6 @@ ActiveRecord::Schema.define(version: 20180607040649) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "elements", "pages"
+  add_foreign_key "links", "pages"
 end
