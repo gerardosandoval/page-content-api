@@ -19,6 +19,8 @@ class PagesController < ApplicationController
   end
 
   def sanitized_url
+    return nil unless params[:url]
+
     url = params[:url]
     if url.match('^(http|https):\/\/')
       url

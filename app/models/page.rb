@@ -32,7 +32,7 @@ class Page < ApplicationRecord
       begin
         open(url)
       rescue Exception => e
-        errors.add :url, "Can't index this URL, please try again or try with another URL"
+        errors.add :url, "URL can't be indexed or was not provided, please try again or try with another URL"
         false
       end
   end
