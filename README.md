@@ -71,6 +71,7 @@ Transfer-Encoding: chunked
 {"errors":{"url":["URL can't be indexed or was not provided, please try again or try with another URL"]}}
 ```
 
+__This app has also been deployed to a development environment in heroku, so the enpoints can be also tested/used with the next URL https://page-content-api.herokuapp.com/pages__
 
 ### Testing
 
